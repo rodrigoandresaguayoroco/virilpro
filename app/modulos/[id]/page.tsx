@@ -80,7 +80,7 @@ export default function ModuloPage({ params }: { params: { id: string } }) {
           <CardContent className="mt-6">
             <h3 className="text-2xl font-bold mb-4">Temas Clave:</h3>
             <ul className="list-disc list-inside text-muted-foreground space-y-2">
-              {moduleData.itemsIncluded.map((item, index) => (
+              {moduleData.itemsIncluded.map((item: string, index: number) => (
                 <li key={index} className="flex items-center">
                   <span className="mr-2 text-green-500">✔</span> {item}
                 </li>
@@ -97,7 +97,7 @@ export default function ModuloPage({ params }: { params: { id: string } }) {
               </CardHeader>
               <CardContent>
                 <Accordion type="single" collapsible className="w-full">
-                  {moduleData.itemsIncluded.map((item, index) => (
+                  {moduleData.itemsIncluded.map((item: string, index: number) => (
                     <AccordionItem key={index} value={`item-${index}`}>
                       <AccordionTrigger className="text-lg">
                         {item.split(":")[0]}
@@ -119,7 +119,7 @@ export default function ModuloPage({ params }: { params: { id: string } }) {
               </CardHeader>
               <CardContent>
                 <Accordion type="single" collapsible className="w-full">
-                  {moduleData.forbidden.map((item, index) => (
+                  {moduleData.forbidden.map((item: string, index: number) => (
                     <AccordionItem key={index} value={`forbidden-item-${index}`}>
                       <AccordionTrigger className="text-lg text-red-300">
                         {item.split(":")[0]}
