@@ -2,9 +2,21 @@
 
 // --- MÓDULO 1: ARSENAL ---
 export const arsenalData = {
+  id: 'arsenal-del-amante',
   title: "Arsenal del Amante",
-  subtitle: "7 tácticas para dominio total",
+  description: "7 tácticas científicas para dominio total.",
   hero: "Domina tu rendimiento con protocolos científicamente validados.",
+  longDescription: "Este módulo desglosa las 7 técnicas fundamentales de control neuromuscular y mental para recalibrar tu respuesta eyaculatoria. No se trata de 'aguantar', se trata de 'controlar'.",
+  itemsIncluded: [
+    "Respiración de Anclaje: Controla el sistema nervioso.",
+    "Kegel Inverso: Domina el músculo PC.",
+    "Pausa Estratégica: Resetea la excitación.",
+    "Cambio de Foco: Redirige tu atención.",
+    "Ritmo Maestro: Modula la velocidad.",
+    "Mapa del Placer: Explora nuevas rutas.",
+    "Comunicación Cómplice: Sincronízate con tu pareja."
+  ],
+  forbidden: ["Ansiedad de rendimiento", "Ritmos monótonos", "Falta de comunicación"],
   tactics: [
     {
       id: "ancla-mental",
@@ -67,9 +79,13 @@ export const arsenalData = {
 
 // --- MÓDULO 2: ACONDICIONAMIENTO ---
 export const acondicionamientoData = {
+  id: 'acondicionamiento',
   title: "Acondicionamiento Masculino",
-  subtitle: "Técnicas manuales seguras para vitalidad",
+  description: "Técnicas manuales seguras para vitalidad.",
   hero: "Mejora la salud circulatoria con protocolos médicos.",
+  longDescription: "Este módulo se enfoca en la salud física y circulatoria. Aprenderás técnicas manuales seguras y probadas para mejorar la vitalidad y la salud general de los tejidos, siempre priorizando la seguridad.",
+  itemsIncluded: ["Protocolo de Seguridad", "Técnica Jelqing Mejorada", "Stretching Controlado", "Plan de Progresión"],
+  forbidden: ["No calentar", "Causar dolor", "Sesiones largas", "Ignorar el descanso"],
   safety: {
     title: "PROTOCOLO DE SEGURIDAD",
     rules: [
@@ -105,26 +121,35 @@ export const acondicionamientoData = {
 
 // --- MÓDULO 3: DIETA ---
 export const dietaData = {
+  id: 'dieta-del-vigor',
   title: "Dieta del Vigor",
-  subtitle: "15 alimentos clave para potenciar virilidad",
+  description: "Nutrición molecular para rendimiento óptimo.",
   hero: "Nutrición molecular para producción hormonal óptima.",
+  longDescription: "Tu rendimiento hormonal y energético empieza en la cocina. Este módulo identifica los 15 alimentos clave que actúan como precursores hormonales, mejoran el flujo sanguíneo y reducen la inflamación.",
+  itemsIncluded: ["Proteínas y Grasas", "Minerales Críticos", "Precursores Hormonales", "Smoothie VIRIL"],
+  forbidden: [
+    "Azúcar añadido: Fructosa baja testosterona.",
+    "Alcohol excesivo: Inhibe síntesis hormonal.",
+    "Plásticos BPA: Actúan como xenoestrógenos.",
+    "Soja no fermentada: Contiene isoflavonas.",
+  ],
   categories: [
     {
       title: "PROTEÍNAS Y GRASAS SALUDABLES",
       foods: [
-        { name: "Huevos", description: "Colesterol para testosterona + vitamina D", servings: "2-3 huevos/día", cooking: "Cocidos o tortillas con vegetales", evidence: "Estudio: 20% ↑ testosterona en 3 semanas" },
-        { name: "Salmón", description: "Omega-3, vitamina D, proteína", servings: "150-200g, 3x semana", cooking: "Al horno con hierbas", evidence: "Reduce inflamación, mejora flujo sanguíneo" },
-        { name: "Aguacate", description: "Grasas monoinsaturadas + vitamina E", servings: "½ unidad/día", cooking: "En ensaladas o tostadas", evidence: "Mejora perfil lipídico" },
-        { name: "Carne de Res Orgánica", description: "Zinc, hierro, creatina", servings: "200g, 2-3x semana", cooking: "A la plancha o asada", evidence: "Zinc esencial para producción de testosterona" },
+        { name: "Huevos", description: "Colesterol para testosterona + vitamina D", servings: "2-3 huevos/día" },
+        { name: "Salmón", description: "Omega-3, vitamina D, proteína", servings: "150-200g, 3x semana" },
+        { name: "Aguacate", description: "Grasas monoinsaturadas + vitamina E", servings: "½ unidad/día" },
+        { name: "Carne de Res Orgánica", description: "Zinc, hierro, creatina", servings: "200g, 2-3x semana" },
       ],
     },
     {
       title: "MINERALES CRÍTICOS",
       foods: [
-        { name: "Ostras", description: "Zinc (más alto que cualquier alimento)", servings: "6-12 unidades, 1x semana", cooking: "Crudas con limón o al vapor", evidence: "Zinc directamente correlacionado con testosterona libre" },
-        { name: "Espinacas", description: "Magnesio, folato, nitratos", servings: "2 tazas frescas/día", cooking: "Sauté con ajo y aceite de oliva", evidence: "Magnesio mejora función endothelial" },
-        { name: "Nueces Brasileñas", description: "Selenio (1 nuez cubre día)", servings: "1-2 unidades/día", cooking: "Cruda como snack", evidence: "Selenio: antioxidante esencial para producción espermatozoide" },
-        { name: "Chocolate Negro 85%", description: "Flavonoides, magnesio", servings: "30-40g/día", cooking: "Directo o en batidos", evidence: "Mejora flujo sanguíneo periférico" },
+        { name: "Ostras", description: "Zinc (el más alto de todos)", servings: "6-12 unidades, 1x semana" },
+        { name: "Espinacas", description: "Magnesio, folato, nitratos", servings: "2 tazas frescas/día" },
+        { name: "Nueces Brasileñas", description: "Selenio (1 nuez cubre el día)", servings: "1-2 unidades/día" },
+        { name: "Chocolate Negro 85%", description: "Flavonoides, magnesio", servings: "30-40g/día" },
       ],
     },
   ],
@@ -132,7 +157,7 @@ export const dietaData = {
     title: "SMOOTHIE VIRIL DIARIO",
     ingredients: [
       "1 taza leche de almendra sin azúcar",
-     "1 plátano",
+      "1 plátano",
       "2 cucharadas mantequilla maní natural",
       "1 huevo crudo (orgánico)",
       "1 cucharada cacao puro",
@@ -144,10 +169,15 @@ export const dietaData = {
     instructions: "Procesar 60s. Consumir inmediatamente.",
     benefits: "Precursores hormonales + energía + antioxidantes en un vaso",
   },
-  forbidden: [
-    "❌ Azúcar añadido (fructosa baja testosterona)",
-    "❌ Alcohol excesivo (inhibe síntesis hormonal)",
-    "❌ Plásticos BPA (xenoestrógenos)",
-    "❌ Soja no fermentada (isoflavonas)",
-   ],
 }
+```
+**Guarda y cierra.**
+
+---
+
+**Paso 2: Reemplaza tu archivo de PÁGINA DE MÓDULO**
+Este archivo ahora incluye el `useLocalStorage` y está diseñado para funcionar 100% con los datos de arriba.
+
+En tu terminal (dentro de `viril-app-pro`):
+```powershell
+notepad app\modulos\[id]\page.tsx
