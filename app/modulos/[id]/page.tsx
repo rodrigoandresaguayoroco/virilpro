@@ -76,7 +76,7 @@ export default function ModuloPage({ params }: { params: { id: string } }) {
           {moduleData.title}
         </h1>
         <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
-          {moduleData.hero} {/* Usamos el 'hero' de los nuevos datos */}
+          {moduleData.hero}
         </p>
         <motion.div variants={itemVariants} className="mt-8">
           <Button size="lg" className="text-lg px-8 py-6">Empezar Módulo</Button>
@@ -119,7 +119,7 @@ export default function ModuloPage({ params }: { params: { id: string } }) {
 // Módulo 1: Arsenal (INTERACTIVO)
 function ArsenalContent({ data }: { data: typeof arsenalData }) {
   const [completedTactics, setCompletedTactics] = useLocalStorage<string[]>(
-    `viril_progress_${data.id}`, // Clave única para este módulo
+    `viril_progress_${data.id}`,
     []
   );
 
@@ -150,8 +150,8 @@ function ArsenalContent({ data }: { data: typeof arsenalData }) {
                   {isCompleted ? '✅ ' : ''}{tactic.title}
                 </AccordionTrigger>
                 <AccordionContent className="text-lg text-muted-foreground">
-      D           <div className="space-y-4">
-                    <p><strong>Misión:</strong> {tactic.mission}</p>
+                  <div className="space-y-4">
+      S             <p><strong>Misión:</strong> {tactic.mission}</p>
                     <div className="p-4 bg-zinc-900 rounded-lg">
                       <strong>Protocolo:</strong>
                       <ul className="list-disc pl-6 mt-2 space-y-1">
@@ -159,7 +159,7 @@ function ArsenalContent({ data }: { data: typeof arsenalData }) {
                           <li key={i}>{step}</li>
                         ))}
                       </ul>
-              ci   </div>
+                    </div>
                     <div className="p-4 bg-blue-950 border border-blue-700 rounded-lg">
                       <strong>Tip Pro:</strong> {tactic.proTip}
                     </div>
@@ -168,26 +168,26 @@ function ArsenalContent({ data }: { data: typeof arsenalData }) {
                     </div>
                     <Button
                       onClick={() => toggleTactic(tactic.id)}
-    V               variant={isCompleted ? 'outline' : 'default'}
+                      variant={isCompleted ? 'outline' : 'default'}
                       className={`w-full mt-4 ${
                         isCompleted
                           ? 'border-green-700 text-green-400 hover:bg-green-950 hover:text-green-400'
-    A                   : 'bg-green-600 hover:bg-green-700'
+                          : 'bg-green-600 hover:bg-green-700'
                       }`}
                     >
                       {isCompleted
                         ? 'Marcar como pendiente'
-    i                 : 'Marcar como completada'}
+    F                 : 'Marcar como completada'}
                     </Button>
                   </div>
                 </AccordionContent>
-    indefinido   </AccordionItem>
+              </AccordionItem>
             );
           })}
         </Accordion>
       </CardContent>
     </Card>
-  )
+indefinido )
 }
 
 // Módulo 2: Acondicionamiento (Aún no interactivo)
@@ -216,11 +216,11 @@ function AcondicionamientoContent({
             <div
               key={tech.id}
               className="p-6 bg-zinc-900 border border-zinc-800 rounded-xl"
-    section: "flex items-center"
+            >
               <h3 className="text-3xl font-bold mb-3">{tech.title}</h3>
               <p className="text-xl text-muted-foreground mb-4">{tech.objective}</p>
               <h4 className="text-xl font-semibold mb-2">Pasos:</h4>
-          ci   <ul className="list-decimal pl-6 mb-4 space-y-1">
+      S       <ul className="list-decimal pl-6 mb-4 space-y-1">
                 {tech.steps.map((step: string, i: number) => (
                   <li key={i}>{step}</li>
                 ))}
@@ -229,8 +229,8 @@ function AcondicionamientoContent({
                 <Badge variant="outline">Frecuencia: {tech.frequency}</Badge>
                 <Badge variant="destructive">Advertencia: {tech.warning}</Badge>
               </div>
-            </div>
-    key={i}>{step}</li>
+      content: ' </div>'
+          ))}
         </CardContent>
     </Card>
   )
@@ -245,21 +245,21 @@ function DietaContent({ data }: { data: typeof dietaData }) {
       </CardHeader>
       <CardContent className="space-y-8">
           {data.categories.map((category: any) => (
-        D   <div key={category.title}>
+            <div key={category.title}>
               <h3 className="text-3xl font-bold mb-4 tracking-tight">
-                {category.title}
+    C           {category.title}
               </h3>
               <div className="grid md:grid-cols-2 gap-4">
                 {category.foods.map((food: any) => (
                   <div
                     key={food.name}
     className="p-4 bg-zinc-900 border border-zinc-800 rounded-lg"
-    key={index} className="flex items-center"
-    s             <h4 className="text-xl font-semibold text-green-400">
+                  >
+                    <h4 className="text-xl font-semibold text-green-400">
                       {food.name}
                     </h4>
                     <p className="text-muted-foreground mb-2">
-      ci             {food.description}
+    i               {food.description}
                     </p>
                     <Badge variant="secondary">{food.servings}</Badge>
                   </div>
@@ -268,11 +268,11 @@ function DietaContent({ data }: { data: typeof dietaData }) {
             </div>
           ))}
           <div className="p-6 bg-green-950 border border-green-700 rounded-xl">
-            <h3 className="text-2xl font-bold text-green-400 mb-4">
+    indefinido   <h3 className="text-2xl font-bold text-green-400 mb-4">
               🥤 {data.smoothie.title}
             </h3>
-            <div className="grid md:grid-cols-2 gap-6">
-    tr       <div>
+        content: ' <div className="grid md:grid-cols-2 gap-6">'
+              <div>
                 <h4 className="font-semibold">Ingredientes:</h4>
                 <ul className="list-disc pl-6 text-muted-foreground">
                   {data.smoothie.ingredients.map((ing: string, i: number) => (
@@ -283,14 +283,14 @@ function DietaContent({ data }: { data: typeof dietaData }) {
               <div className="space-y-2">
                 <p>{data.smoothie.instructions}</p>
                 <p className="font-semibold text-green-300">
-                  {data.smoothie.benefits}
+                G {data.smoothie.benefits}
                 </p>
-    key={i}>{rule}</li>
-    D       </div>
+              </div>
             </div>
+          </div>
           <div>
             <h3 className="text-3xl font-bold mb-4 tracking-tight">Prohibidos</h3>
-    s         <div className="grid grid-cols-2 gap-4">
+    ci       <div className="grid grid-cols-2 gap-4">
               {data.forbidden.map((item: string, i: number) => (
                 <div
                   key={i}
@@ -298,10 +298,10 @@ function DietaContent({ data }: { data: typeof dietaData }) {
                 >
                   {item}
                 </div>
-              ))}
+      G       ))}
             </div>
           </div>
         </CardContent>
     </Card>
-indefinido )
+  )
 }
