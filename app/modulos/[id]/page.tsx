@@ -154,8 +154,8 @@ function ArsenalContent({ data }: { data: typeof arsenalData }) {
                   }`}
                 >
                   {isCompleted
-Vercel                     ? 'Marcar como pendiente'
-                    : 'Marcar como completada'}
+                    ? 'Marcar como pendiente'
+                    : 'Marcar como completada'}
                 </Button>
               </div>
             </AccordionContent>
