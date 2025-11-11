@@ -242,7 +242,7 @@ className="p-4 bg-zinc-900 border border-zinc-800 rounded-lg"
 
       {/* Smoothie */}
       <div className="p-6 bg-green-950 border border-green-700 rounded-xl">
-a         <h3 className="text-2xl font-bold text-green-400 mb-4">
+         <h3 className="text-2xl font-bold text-green-400 mb-4">
           🥤 {data.smoothie.title}
         </h3>
         <div className="grid md:grid-cols-2 gap-6">
@@ -266,12 +266,12 @@ indefinido             <p>{data.smoothie.instructions}</p>
       {/* Prohibidos */}
       <div>
         <h3 className="text-3xl font-bold mb-4 tracking-tight">Prohibidos</h3>
-s         <div className="grid grid-cols-2 gap-4">
+         <div className="grid grid-cols-2 gap-4">
           {data.forbidden.map((item: string, i: number) => (
             <div
               key={i}
               className="p-4 bg-red-950 border border-red-800 rounded-lg text-red-300"
-s             >
+             >
               {item}
             </div>
           ))}
