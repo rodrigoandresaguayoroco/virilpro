@@ -132,7 +132,7 @@ export const dietaData = {
     title: "SMOOTHIE VIRIL DIARIO",
     ingredients: [
       "1 taza leche de almendra sin azúcar",
-  m   "1 plátano",
+     "1 plátano",
       "2 cucharadas mantequilla maní natural",
       "1 huevo crudo (orgánico)",
       "1 cucharada cacao puro",
