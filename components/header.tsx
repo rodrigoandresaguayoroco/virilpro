@@ -1,7 +1,8 @@
 // components/header.tsx
 import Link from 'next/link';
-import { ModeToggle } from './mode-toggle'; // Asumiendo que mode-toggle está en components/
-import { Shield, Heart, Apple } from 'lucide-react'; // Iconos para el logo, o puedes usar una imagen
+import Image from 'next/image'; // ¡Importa el componente Image de Next.js!
+import { ModeToggle } from './mode-toggle';
+import { Shield, Heart, Apple } from 'lucide-react'; 
 
 export function Header() {
   return (
@@ -9,9 +10,15 @@ export function Header() {
       <div className="container flex h-16 items-center space-x-4 sm:justify-between sm:space-x-0">
         <div className="flex gap-6 md:gap-10">
           <Link href="/" className="flex items-center space-x-2">
-            {/* Aquí va tu logo o nombre de la academia */}
-            <Shield className="h-6 w-6" /> {/* Icono de ejemplo para logo */}
-            <span className="inline-block font-bold">VIRIL Academy</span>
+            {/* INICIO DEL CAMBIO: Usar tu logo */}
+            <Image
+              src="/viril-logo.png" // Ruta a tu logo en la carpeta public
+              alt="VIRIL Academy Logo"
+              width={100} // Ajusta el ancho según sea necesario
+              height={30} // Ajusta el alto según sea necesario
+              className="h-auto" // Para mantener la proporción
+            />
+            {/* FIN DEL CAMBIO */}
           </Link>
           <nav className="flex items-center space-x-4 lg:space-x-6">
             <Link
@@ -26,12 +33,11 @@ export function Header() {
             >
               Sobre Nosotros
             </Link>
-            {/* Agrega más enlaces aquí si lo deseas */}
           </nav>
         </div>
         <div className="flex flex-1 items-center justify-end space-x-4">
           <nav className="flex items-center space-x-1">
-            <ModeToggle /> {/* Tu componente de alternancia de modo oscuro */}
+            <ModeToggle />
           </nav>
         </div>
       </div>
