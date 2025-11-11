@@ -19,18 +19,10 @@ import { notFound } from 'next/navigation'
 import { Button } from '@/components/ui/button'; // ¡Necesitamos un componente Button!
 
 // Interfaz para definir la estructura de los datos del módulo
-interface ModuloData {
-  id: string;
-  title: string;
-  description: string;
-  longDescription: string;
-  icon: string; // Esto podría ser una URL de imagen o un nombre de icono
-  itemsIncluded: string[];
-  forbidden: string[];
-}
 
 // Mapa para acceder a los datos de los módulos
-const modulesDataMap: { [key: string]: ModuloData } = {
+// POR ESTO:
+const modulesDataMap: { [key: string]: any } = {
   'arsenal-del-amante': arsenalData,
   'acondicionamiento': acondicionamientoData,
   'dieta-del-vigor': dietaData,
