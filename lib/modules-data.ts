@@ -144,7 +144,7 @@ export const dietaData = {
     {
       title: "MINERALES CRÍTICOS",
       foods: [
-    G   { name: "Ostras", description: "Zinc (el más alto de todos)", servings: "6-12 unidades, 1x semana" },
+       { name: "Ostras", description: "Zinc (el más alto de todos)", servings: "6-12 unidades, 1x semana" },
         { name: "Espinacas", description: "Magnesio, folato, nitratos", servings: "2 tazas frescas/día" },
         { name: "Nueces Brasileñas", description: "Selenio (1 nuez cubre el día)", servings: "1-2 unidades/día" },
         { name: "Chocolate Negro 85%", description: "Flavonoides, magnesio", servings: "30-40g/día" },
