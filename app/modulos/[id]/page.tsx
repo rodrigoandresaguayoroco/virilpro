@@ -14,7 +14,7 @@ import {
   CardTitle,
 } from '@/components/ui/card'
 import { Badge } from '@/components/ui/badge'
-import { arsenalData, acondicionamientoData, nutricionData } from '@/lib/modules-data'
+import { arsenalData, acondicionamientoData, dietaData } from '@/lib/modules-data'
 import { notFound } from 'next/navigation'
 import { Button } from '@/components/ui/button'; // ¡Necesitamos un componente Button!
 
@@ -33,9 +33,8 @@ interface ModuloData {
 const modulesDataMap: { [key: string]: ModuloData } = {
   'arsenal-del-amante': arsenalData,
   'acondicionamiento': acondicionamientoData,
-  'dieta-del-vigor': nutricionData,
+  'dieta-del-vigor': dietaData,
 }
-
 // Este es el componente principal de la página
 export default function ModuloPage({ params }: { params: { id: string } }) {
   const { id } = params
