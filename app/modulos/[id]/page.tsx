@@ -1,5 +1,5 @@
 'use client'
-import { motion } from 'framer-motion'; // ¡Importa motion de framer-motion!
+import { motion, Variants } from 'framer-motion'; // ¡Importa motion y Variants!
 import {
   Accordion,
   AccordionContent,
@@ -37,12 +37,12 @@ export default function ModuloPage({ params }: { params: { id: string } }) {
   }
 
   // Define las animaciones para los elementos de la página
-  const containerVariants = {
+  const containerVariants: Variants = {
     hidden: { opacity: 0, y: 20 },
     visible: { opacity: 1, y: 0, transition: { duration: 0.6, ease: "easeOut" } },
   };
 
-  const itemVariants = {
+  const itemVariants: Variants = {
     hidden: { opacity: 0, y: 10 },
     visible: { opacity: 1, y: 0, transition: { duration: 0.4, ease: "easeOut" } },
   };
