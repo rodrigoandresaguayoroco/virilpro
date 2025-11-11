@@ -78,8 +78,8 @@ export const arsenalData = {
 // --- MÓDULO 2: ACONDICIONAMIENTO ---
 export const acondicionamientoData = {
   id: 'acondicionamiento',
-  title: "Acondicionamiento Masculino",
-  description: "Técnicas manuales seguras para vitalidad.",
+  title: "Acondicionamiento",
+  description: "Técnicas de vitalidad masculina seguras.",
   hero: "Mejora la salud circulatoria con protocolos médicos.",
   longDescription: "Este módulo se enfoca en la salud física y circulatoria. Aprenderás técnicas manuales seguras y probadas para mejorar la vitalidad y la salud general de los tejidos, siempre priorizando la seguridad.",
   itemsIncluded: ["Protocolo de Seguridad", "Técnica Jelqing Mejorada", "Stretching Controlado", "Plan de Progresión"],
