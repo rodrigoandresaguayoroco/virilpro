@@ -144,7 +144,7 @@ export const dietaData = {
     {
       title: "MINERALES CRÍTICOS",
       foods: [
-       { name: "Ostras", description: "Zinc (el más alto de todos)", servings: "6-12 unidades, 1x semana" },
+        { name: "Ostras", description: "Zinc (el más alto de todos)", servings: "6-12 unidades, 1x semana" },
         { name: "Espinacas", description: "Magnesio, folato, nitratos", servings: "2 tazas frescas/día" },
         { name: "Nueces Brasileñas", description: "Selenio (1 nuez cubre el día)", servings: "1-2 unidades/día" },
         { name: "Chocolate Negro 85%", description: "Flavonoides, magnesio", servings: "30-40g/día" },
@@ -156,7 +156,7 @@ export const dietaData = {
     ingredients: [
       "1 taza leche de almendra sin azúcar",
       "1 plátano",
-  section: "2 cucharadas mantequilla maní natural",
+      "2 cucharadas mantequilla maní natural",
       "1 huevo crudo (orgánico)",
       "1 cucharada cacao puro",
       "1 cucharada miel",
