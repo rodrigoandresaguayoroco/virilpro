@@ -1,6 +1,5 @@
-// ===== Contenido de app/modulos/[id]/page.tsx =====
 'use client'
-
+import { motion } from 'framer-motion'; // ¡Importa motion de framer-motion!
 import {
   Accordion,
   AccordionContent,
@@ -8,203 +7,143 @@ import {
   AccordionTrigger,
 } from '@/components/ui/accordion'
 import {
-  arsenalData,
-  acondicionamientoData,
-  dietaData,
-} from '@/lib/modules-data'
-import { notFound } from 'next/navigation'
+  Card,
+  CardContent,
+  CardDescription,
+  CardHeader,
+  CardTitle,
+} from '@/components/ui/card'
 import { Badge } from '@/components/ui/badge'
+import { arsenalData, acondicionamientoData, nutricionData } from '@/lib/modules-data'
+import { notFound } from 'next/navigation'
+import { Button } from '@/components/ui/button'; // ¡Necesitamos un componente Button!
+
+// Interfaz para definir la estructura de los datos del módulo
+interface ModuloData {
+  id: string;
+  title: string;
+  description: string;
+  longDescription: string;
+  icon: string; // Esto podría ser una URL de imagen o un nombre de icono
+  itemsIncluded: string[];
+  forbidden: string[];
+}
+
+// Mapa para acceder a los datos de los módulos
+const modulesDataMap: { [key: string]: ModuloData } = {
+  'arsenal-del-amante': arsenalData,
+  'acondicionamiento': acondicionamientoData,
+  'dieta-del-vigor': nutricionData,
+}
 
 // Este es el componente principal de la página
 export default function ModuloPage({ params }: { params: { id: string } }) {
   const { id } = params
+  const moduleData = modulesDataMap[id]
 
-  let data
-  let contentComponent
-
-  // 1. Revisa el ID de la URL y elige los datos y el componente correctos
-  if (id === 'arsenal-del-amante') {
-    data = arsenalData
-    contentComponent = <ArsenalContent data={data} />
-  } else if (id === 'acondicionamiento') {
-    data = acondicionamientoData
-    contentComponent = <AcondicionamientoContent data={data} />
-  } else if (id === 'dieta-del-vigor') {
-    data = dietaData
-    contentComponent = <DietaContent data={data} />
-  } else {
-    // Si el ID no coincide con nada, muestra un error 404
-    return notFound()
+  if (!moduleData) {
+    notFound()
   }
 
-  // 2. Renderiza el layout de la página con el componente de contenido elegido
+  // Define las animaciones para los elementos de la página
+  const containerVariants = {
+    hidden: { opacity: 0, y: 20 },
+    visible: { opacity: 1, y: 0, transition: { duration: 0.6, ease: "easeOut" } },
+  };
+
+  const itemVariants = {
+    hidden: { opacity: 0, y: 10 },
+    visible: { opacity: 1, y: 0, transition: { duration: 0.4, ease: "easeOut" } },
+  };
+
   return (
-    <main className="container mx-auto max-w-3xl min-h-screen p-8 md:p-24">
-      <div className="text-center mb-12">
-        <h1 className="text-5xl font-bold tracking-tighter mb-4">
-          {data.title}
+    <motion.div
+      className="container flex-1 py-12"
+      variants={containerVariants}
+      initial="hidden"
+      animate="visible"
+    >
+      <motion.div variants={itemVariants} className="mb-8 text-center">
+        <Badge variant="secondary" className="mb-4 text-lg p-2">
+          Módulo
+        </Badge>
+        <h1 className="text-5xl font-extrabold tracking-tight lg:text-6xl mb-4">
+          {moduleData.title}
         </h1>
-        <p className="text-2xl text-muted-foreground">{data.subtitle}</p>
-      </div>
+        <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
+          {moduleData.description}
+        </p>
+        <motion.div variants={itemVariants} className="mt-8">
+            <Button size="lg" className="text-lg px-8 py-6">Acceder al Módulo Ahora</Button>
+        </motion.div>
+      </motion.div>
 
-      {/* Aquí se inserta el contenido específico del módulo */}
-      {contentComponent}
-    </main>
-  )
-}
-
-// --- COMPONENTES DE CONTENIDO ESPECÍFICOS ---
-
-// Componente para el Módulo 1: Arsenal
-function ArsenalContent({ data }: { data: typeof arsenalData }) {
-  return (
-    <Accordion type="single" collapsible className="w-full">
-      {data.tactics.map((tactic, index) => (
-        <AccordionItem value={`item-${index}`} key={tactic.id}>
-          <AccordionTrigger className="text-xl font-medium text-left">
-            {tactic.title}
-          </AccordionTrigger>
-          <AccordionContent className="text-lg text-muted-foreground">
-            <div className="space-y-4">
-              <p>
-                <strong>Misión:</strong> {tactic.mission}
-              </p>
-
-              <div className="p-4 bg-zinc-900 rounded-lg">
-                <strong>Protocolo:</strong>
-                <ul className="list-disc pl-6 mt-2 space-y-1">
-                  {tactic.protocol.map((step, i) => (
-                    <li key={i}>{step}</li>
-                  ))}
-                </ul>
-              </div>
-
-              <div className="p-4 bg-blue-950 border border-blue-700 rounded-lg">
-                <strong>Tip Pro:</strong> {tactic.proTip}
-              </div>
-
-              <div className="p-4 bg-zinc-800 border border-zinc-700 rounded-lg">
-                <strong>Ciencia:</strong> {tactic.science}
-              </div>
-            </div>
-          </AccordionContent>
-        </AccordionItem>
-      ))}
-    </Accordion>
-  )
-}
-
-// Componente para el Módulo 2: Acondicionamiento
-function AcondicionamientoContent({
-  data,
-}: {
-  data: typeof acondicionamientoData
-}) {
-  return (
-    <div className="space-y-8">
-      {/* Protocolo de Seguridad */}
-      <div className="p-6 bg-red-950 border border-red-700 rounded-xl">
-        <h3 className="text-2xl font-bold text-red-400 mb-4">
-          🚨 {data.safety.title}
-        </h3>
-        <ul className="list-disc pl-6 space-y-2 text-lg text-red-200">
-          {data.safety.rules.map((rule, i) => (
-            <li key={i}>{rule}</li>
-          ))}
-        </ul>
-      </div>
-
-      {/* Técnicas */}
-      {data.techniques.map((tech) => (
-        <div
-          key={tech.id}
-          className="p-6 bg-zinc-900 border border-zinc-800 rounded-xl"
-        >
-          <h3 className="text-3xl font-bold mb-3">{tech.title}</h3>
-          <p className="text-xl text-muted-foreground mb-4">{tech.objective}</p>
-
-          <h4 className="text-xl font-semibold mb-2">Pasos:</h4>
-          <ul className="list-decimal pl-6 mb-4 space-y-1">
-            {tech.steps.map((step, i) => (
-              <li key={i}>{step}</li>
-            ))}
-          </ul>
-
-          <div className="flex flex-wrap gap-4">
-            <Badge variant="outline">Frecuencia: {tech.frequency}</Badge>
-            <Badge variant="destructive">Advertencia: {tech.warning}</Badge>
-          </div>
-        </div>
-      ))}
-    </div>
-  )
-}
-
-// Componente para el Módulo 3: Dieta
-function DietaContent({ data }: { data: typeof dietaData }) {
-  return (
-    <div className="space-y-8">
-      {data.categories.map((category) => (
-        <div key={category.title}>
-          <h3 className="text-3xl font-bold mb-4 tracking-tight">
-            {category.title}
-          </h3>
-          <div className="grid md:grid-cols-2 gap-4">
-            {category.foods.map((food) => (
-              <div
-                key={food.name}
-                className="p-4 bg-zinc-900 border border-zinc-800 rounded-lg"
-              >
-                <h4 className="text-xl font-semibold text-green-400">
-                  {food.name}
-                </h4>
-                <p className="text-muted-foreground mb-2">
-                  {food.description}
-                </p>
-                <Badge variant="secondary">{food.servings}</Badge>
-              </div>
-            ))}
-          </div>
-        </div>
-      ))}
-
-      {/* Smoothie */}
-      <div className="p-6 bg-green-950 border border-green-700 rounded-xl">
-        <h3 className="text-2xl font-bold text-green-400 mb-4">
-          🥤 {data.smoothie.title}
-        </h3>
-        <div className="grid md:grid-cols-2 gap-6">
-          <div>
-            <h4 className="font-semibold">Ingredientes:</h4>
-            <ul className="list-disc pl-6 text-muted-foreground">
-              {data.smoothie.ingredients.map((ing, i) => (
-                <li key={i}>{ing}</li>
+      <motion.div variants={itemVariants} className="grid grid-cols-1 md:grid-cols-2 gap-8 mt-12">
+        <Card className="p-6">
+          <CardHeader>
+            <CardTitle className="text-3xl">Descripción Detallada</CardTitle>
+            <CardDescription className="text-base leading-relaxed mt-4">
+              {moduleData.longDescription}
+            </CardDescription>
+          </CardHeader>
+          <CardContent className="mt-6">
+            <h3 className="text-2xl font-bold mb-4">Temas Clave:</h3>
+            <ul className="list-disc list-inside text-muted-foreground space-y-2">
+              {moduleData.itemsIncluded.map((item, index) => (
+                <li key={index} className="flex items-center">
+                  <span className="mr-2 text-green-500">✔</span> {item}
+                </li>
               ))}
             </ul>
-          </div>
-          <div className="space-y-2">
-            <p>{data.smoothie.instructions}</p>
-            <p className="font-semibold text-green-300">
-              {data.smoothie.benefits}
-            </p>
-          </div>
-        </div>
-      </div>
+          </CardContent>
+        </Card>
 
-      {/* Prohibidos */}
-      <div>
-        <h3 className="text-3xl font-bold mb-4 tracking-tight">Prohibidos</h3>
-        <div className="grid grid-cols-2 gap-4">
-          {data.forbidden.map((item, i) => (
-            <div
-              key={i}
-              className="p-4 bg-red-950 border border-red-800 rounded-lg text-red-300"
-            >
-              {item}
-            </div>
-          ))}
+        <div>
+          <motion.div variants={itemVariants} className="mb-8">
+            <Card className="p-6">
+              <CardHeader>
+                <CardTitle className="text-3xl">Lo que aprenderás</CardTitle>
+              </CardHeader>
+              <CardContent>
+                <Accordion type="single" collapsible className="w-full">
+                  {moduleData.itemsIncluded.map((item, index) => (
+                    <AccordionItem key={index} value={`item-${index}`}>
+                      <AccordionTrigger className="text-lg">
+                        {item.split(":")[0]}
+                      </AccordionTrigger>
+                      <AccordionContent className="text-muted-foreground">
+                        {item.split(":")[1] || "Sin descripción adicional."}
+                      </AccordionContent>
+                    </AccordionItem>
+                  ))}
+                </Accordion>
+              </CardContent>
+            </Card>
+          </motion.div>
+
+          <motion.div variants={itemVariants}>
+            <Card className="p-6">
+              <CardHeader>
+                <CardTitle className="text-3xl text-red-400">A tener en cuenta</CardTitle>
+              </CardHeader>
+              <CardContent>
+                <Accordion type="single" collapsible className="w-full">
+                  {moduleData.forbidden.map((item, index) => (
+                    <AccordionItem key={index} value={`forbidden-item-${index}`}>
+                      <AccordionTrigger className="text-lg text-red-300">
+                        {item.split(":")[0]}
+                      </AccordionTrigger>
+                      <AccordionContent className="text-muted-foreground">
+                        {item.split(":")[1] || "Sin descripción adicional."}
+                      </AccordionContent>
+                    </AccordionItem>
+                  ))}
+                </Accordion>
+              </CardContent>
+            </Card>
+          </motion.div>
         </div>
-      </div>
-    </div>
+      </motion.div>
+    </motion.div>
   )
 }
