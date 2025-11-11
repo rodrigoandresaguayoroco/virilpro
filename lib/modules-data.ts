@@ -173,13 +173,7 @@ export const dietaData = {
 
 ---
 
-**Paso 2: Reemplaza el archivo `app/modulos/[id]/page.tsx` (La Página)**
 
-En tu terminal (dentro de `viril-app-pro`):
-```powershell
-notepad app\modulos\[id]\page.tsx
-```
-**BORRA TODO** lo que hay en ese archivo y pega **SOLO** este código:
 
 ```typescript
 'use client'
