@@ -149,5 +149,5 @@ export const dietaData = {
     "❌ Alcohol excesivo (inhibe síntesis hormonal)",
     "❌ Plásticos BPA (xenoestrógenos)",
     "❌ Soja no fermentada (isoflavonas)",
-A   ],
+   ],
 }
