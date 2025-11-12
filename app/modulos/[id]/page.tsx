@@ -15,11 +15,13 @@ import {
   CardTitle,
 } from '@/components/ui/card'
 import { Badge } from '@/components/ui/badge'
+// --- ESTA ES LA LÍNEA CORREGIDA ---
 import {
   arsenalData,
   acondicionamientoData,
   dietaData,
-} from '@/lib/modules-data'
+} from '../../../lib/modules-data'
+// --- FIN DE LA CORRECCIÓN ---
 import { notFound } from 'next/navigation'
 import { Button } from '@/components/ui/button'
 import { useLocalStorage } from '@/lib/hooks/use-local-storage'
@@ -240,7 +242,7 @@ function AcondicionamientoContent({
             <h3 className="text-3xl font-bold mb-3">{tech.title}</h3>
             <p className="text-xl text-muted-foreground mb-4">
               {tech.objective}
-            </p>
+            </D
             <h4 className="text-xl font-semibold mb-2">Pasos:</h4>
             <ul className="list-decimal pl-6 mb-4 space-y-1">
               {tech.steps.map((step: string, i: number) => (
