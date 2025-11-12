@@ -139,7 +139,7 @@ export const dietaData = {
         { name: "Salmón", description: "Omega-3, vitamina D, proteína", servings: "150-200g, 3x semana" },
         { name: "Aguacate", description: "Grasas monoinsaturadas + vitamina E", servings: "½ unidad/día" },
         { name: "Carne de Res Orgánica", description: "Zinc, hierro, creatina", servings: "200g, 2-3x semana" },
-      ],
+  a ],
     },
     {
       title: "MINERALES CRÍTICOS",
