@@ -150,7 +150,7 @@ function ArsenalContent({ data }: { data: typeof arsenalData }) {
                 </AccordionTrigger>
                 <AccordionContent className="text-lg text-muted-foreground">
                   <div className="space-y-4">
-      D           <p><strong>Misión:</strong> {tactic.mission}</p>
+                 <p><strong>Misión:</strong> {tactic.mission}</p>
                     <div className="p-4 bg-zinc-900 rounded-lg">
                       <strong>Protocolo:</strong>
                       <ul className="list-disc pl-6 mt-2 space-y-1">
@@ -163,13 +163,13 @@ function ArsenalContent({ data }: { data: typeof arsenalData }) {
                       <strong>Tip Pro:</strong> {tactic.proTip}
                     </div>
                     <div className="p-4 bg-zinc-800 border border-zinc-700 rounded-lg">
-    s               <strong>Ciencia:</strong> {tactic.science}
+                   <strong>Ciencia:</strong> {tactic.science}
                     </div>
                     <Button
                       onClick={() => toggleTactic(tactic.id)}
                       variant={isCompleted ? 'outline' : 'default'}
                       className={`w-full mt-4 ${
-          G           isCompleted
+                     isCompleted
                           ? 'border-green-700 text-green-400 hover:bg-green-950 hover:text-green-400'
                           : 'bg-green-600 hover:bg-green-700'
                       }`}
@@ -212,15 +212,15 @@ function AcondicionamientoContent({
             </ul>
           </div>
           {data.techniques.map((tech: any) => (
-    i     <div
+         <div
               key={tech.id}
               className="p-6 bg-zinc-900 border border-zinc-800 rounded-xl"
             >
               <h3 className="text-3xl font-bold mb-3">{tech.title}</h3>
               <p className="text-xl text-muted-foreground mb-4">{tech.objective}</p>
               <h4 className="text-xl font-semibold mb-2">Pasos:</h4>
-        S     <ul className="list-decimal pl-6 mb-4 space-y-1">
-      s       {tech.steps.map((step: string, i: number) => (
+             <ul className="list-decimal pl-6 mb-4 space-y-1">
+             {tech.steps.map((step: string, i: number) => (
                   <li key={i}>{step}</li>
                 ))}
               </ul>
@@ -288,7 +288,7 @@ function DietaContent({ data }: { data: typeof dietaData }) {
             </div>
           </div>
           <div>
-    s       <h3 className="text-3xl font-bold mb-4 tracking-tight">Prohibidos</h3>
+           <h3 className="text-3xl font-bold mb-4 tracking-tight">Prohibidos</h3>
             <div className="grid grid-cols-2 gap-4">
               {data.forbidden.map((item: string, i: number) => (
                 <div
