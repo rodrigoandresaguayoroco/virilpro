@@ -242,7 +242,7 @@ function AcondicionamientoContent({
             <h3 className="text-3xl font-bold mb-3">{tech.title}</h3>
             <p className="text-xl text-muted-foreground mb-4">
               {tech.objective}
-            </D
+            </p>
             <h4 className="text-xl font-semibold mb-2">Pasos:</h4>
             <ul className="list-decimal pl-6 mb-4 space-y-1">
               {tech.steps.map((step: string, i: number) => (
